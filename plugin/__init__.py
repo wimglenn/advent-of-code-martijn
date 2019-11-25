@@ -34,8 +34,9 @@ def transform(line):
 
 def main(year, day, data):
     fname = f"{year}/Day {day:02d}.ipynb"
-    nbs = pkgutil.get_data("plugin", fname)
-    if nbs is None:
+    try:
+        nbs = pkgutil.get_data("plugin", fname)
+    except FileNotFoundError:
         raise NotImplementedError(year, day)
     nb = nbformat.reads(nbs, nbformat.NO_CONVERT)
     sources = [cell["source"] for cell in nb["cells"] if not blacklisted(cell)]
