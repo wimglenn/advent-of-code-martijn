@@ -1,4 +1,3 @@
-import glob
 from setuptools import setup
 
 setup(
@@ -12,7 +11,15 @@ setup(
         "Programming Language :: Python :: 3",
         "Topic :: Games/Entertainment :: Puzzle Games",
     ],
-    install_requires=["nbformat", "advent-of-code-data"],
+    install_requires=[
+        "jupyter",
+        "graphviz",
+        "numpy",
+        "pillow",
+        "matplotlib",
+        "nbformat",
+        "advent-of-code-data",
+    ],
     python_requires=">= 3.7",
     packages=["plugin"],
     package_data={"plugin": ["2017/*.ipynb", "2018/*.ipynb"]},
